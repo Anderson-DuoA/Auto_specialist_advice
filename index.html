@@ -7,60 +7,65 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
 </head>
+<!-- Seta para voltar ao topo -->
+<div id="backToTop" class="back-to-top">
+    ↑
+</div>
 <body>
     <header>
-    <div class="container">
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="imagens/logo.png" alt="Auto Specialist Advice" class="logo-image">
-                <div class="logo">
-                    <div class="logo-main">AUTO SPECIALIST</div>
-                    <div class="logo-sub">ADVICE</div>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="imagens/logo.png" alt="Auto Specialist Advice" class="logo-image">
+                    <div class="logo">
+                        <div class="logo-main">AUTO SPECIALIST</div>
+                        <div class="logo-sub">ADVICE</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="header-cta">
-                <p>Receba as melhores notícias automotivas diretamente no seu e-mail</p>
-                <a href="https://exemplo.com/assinar" class="cta-button">Assine Agora</a>
-            </div>
-
-            <!-- Menu Hamburguer -->
-            <div class="hamburger-menu">
-                <div class="hamburger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                
+                <!-- Menu Desktop dentro do Header -->
+                <nav class="desktop-nav">
+                    <ul class="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#news">Notícias</a></li>
+                        <li><a href="https://autodealerproclub.com/" target="_blank">Guia</a></li>
+                        <li><a href="error/index.html">Vídeos</a></li>
+                        <li><a href="#footer">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Menu Hamburguer -->
+                <div class="hamburger-menu">
+                    <div class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- Menu de Navegação Mobile -->
-<nav class="mobile-nav">
-    <ul class="mobile-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#news">Notícias</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#videos">Vídeos</a></li>
-        <li><a href="#contact">Contato</a></li>
-    </ul>
-</nav>
+    <!-- Menu de Navegação Mobile (permanece fora do header) -->
+    <nav class="mobile-nav">
+        <ul class="mobile-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">Notícias</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#videos">Vídeos</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
 
-<!-- Navegação Desktop (visível em telas grandes) -->
-<nav class="desktop-nav">
-    <div class="container">
-        <div class="nav-container">
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#news">Notícias</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#videos">Vídeos</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
+    <!-- NOVA SEÇÃO ADICIONADA AQUI -->
+    <section class="concessionaria-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>O guia definitivo para abrir sua concessionária de sucesso está       aqui!<h2>
+                <a href="https://autodealerproclub.com/" class="cta-button" target="_blank">Saiba Mais aqui</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </section>
     
     <main class="container main-content">
         <!-- Seção Hero com Slider de Notícias -->
@@ -72,41 +77,41 @@
                     <div class="slider-track">
                         <div class="slide active">
                             <div class="slide-content">
-                                <h2>ÚLTIMAS NOTÍCIAS DO MUNDO AUTOMOTIVO</h2>
-                                <p>Fique por dentro de todas as novidades, lançamentos e tendências do universo automobilístico</p>
+                                <h2>NOTÍCIAS AUTOMOTIVAS DOS ESTADOS UNIDOS</h2>
+                                <p>Fique por dentro das últimas novidades, lançamentos e tendências do mercado norte-americano</p>
                                 <a href="#news" class="btn">Ver Todas as Notícias</a>
                             </div>
-                            <div class="slide-image" style="background-color: #1a3d7c;"></div>
+                            <img src="imagens/noticias.png" alt="" target="_blank" class="slide-image">
                         </div>
                         
                         <div class="slide">
                             <div class="slide-content">
-                                <span class="news-category">Lançamento</span>
-                                <h2>Novo SUV Elétrico Chega ao Mercado</h2>
-                                <p>Conheça o modelo que promete revolucionar o segmento com autonomia de 600km</p>
-                                <a href="#" class="btn">Leia Mais</a>
+                                <span class="news-category">Elétricos</span>
+                                <h2>Pressão crescente nos preços de usados</h2>
+                                <p>Preços médios de carros usados de 3 anos superaram US$ 30.522, refletindo escassez de estoque e alta demanda.</p>
+                                <a href="https://apnews.com/article/vehicle-shopping-used-cars-afe8bcf9510368186132f4844b780f6d" class="btn" target="_blank">Leia Mais</a>
                             </div>
-                            <div class="slide-image" style="background-color: #2a56b6;"></div>
+                            <img src="imagens/usados.png" alt="" class="slide-image">
                         </div>
                         
                         <div class="slide">
                             <div class="slide-content">
                                 <span class="news-category">Tecnologia</span>
-                                <h2>Direção Autônoma: O Futuro é Agora</h2>
-                                <p>Nova tecnologia é testada com sucesso e promete chegar ao mercado em 2024</p>
-                                <a href="#" class="btn">Leia Mais</a>
+                                <h2>Ford investe US$ 5 bilhões em EV acessível</h2>
+                                <p>Ford anuncia investimento de US$ 5 bilhões em nova plataforma para lançar uma picape elétrica de cerca de US$ 30.000.</p>
+                                <a href="https://www.vox.com/climate/458567/trump-ford-electric-car-tax-credit-f-f150" class="btn" target="_blank">Leia Mais</a>
                             </div>
-                            <div class="slide-image" style="background-color: #3a6ef0;"></div>
+                            <img src="imagens/ford.png" class="slide-image" alt="">
                         </div>
                         
                         <div class="slide">
                             <div class="slide-content">
-                                <span class="news-category">Competições</span>
-                                <h2>Fórmula 1: Resultado do Último GP</h2>
-                                <p>Confira como ficou o campeonato após a emocionante corrida do último final de semana</p>
-                                <a href="#" class="btn">Leia Mais</a>
+                                <span class="news-category">Lançamento</span>
+                                <h2>Hertz vende usados pela Amazon</h2>
+                                <p>Hertz passa a vender seus carros usados pela plataforma Amazon Autos em várias cidades dos EUA.</p>
+                                <a href="euters.com/business/retail-consumer/hertz-partners-with-amazon-autos-sell-used-vehicles-online-2025-08-20" class="btn" target="_blank">Leia Mais</a>
                             </div>
-                            <div class="slide-image" style="background-color: #4a7eff;"></div>
+                            <img src="imagens/hertz.avif" class="slide-image" alt="">
                         </div>
                     </div>
                 </div>
@@ -120,13 +125,13 @@
             <div class="featured-container">
                 <div class="main-featured">
                     <div class="featured-card">
-                        <div class="news-image" style="background-color: #1a3d7c;"></div>
+                        <img src="imagens/toyota.png" class="news-image" alt="">
                         <div class="news-content">
-                            <span class="news-category">Lançamentos</span>
-                            <h3>Novo SUV elétrico da marca chega ao mercado com autonomia de 600km</h3>
-                            <p>O aguardado modelo 2024 promete revolucionar o segmento de veículos elétricos com sua tecnologia avançada e design inovador.</p>
+                            <span class="news-category">Mercado</span>
+                            <h3>Preço dos carros usados nos EUA: continua alto, mas pode começar a cair</h3>
+                            <p>O preço médio dos carros usados nos Estados Unidos continua elevado em 2025, chegando a US$ 31.770 em julho, quase 5% acima do ano passado. Apesar disso, alguns segmentos como SUVs compactos e elétricos já mostram sinais de queda, e especialistas projetam uma leve redução até o fim do ano.</p>
                             <div class="news-meta">
-                                <span class="news-date">15 de Maio, 2023</span>
+                                <span class="news-date">12 de Março, 2024</span>
                                 <a href="#" class="news-read-more">Leia mais</a>
                             </div>
                         </div>
@@ -135,23 +140,23 @@
                 
                 <div class="secondary-featured">
                     <div class="featured-card small">
-                        <div class="news-image" style="background-color: #2a56b6;"></div>
+                        <img src="imagens/hert.png" alt="" target="_blank" class="news-image">
                         <div class="news-content">
-                            <span class="news-category">Tecnologia</span>
-                            <h4>Nova tecnologia de direção autônoma é testada com sucesso</h4>
+                            <span class="news-category">Vendas</span>
+                            <h4>Hertz começa a vender carros usados diretamente pela Amazon nos EUA.</h4>
                             <div class="news-meta">
-                                <span class="news-date">14 de Maio, 2023</span>
+                                <span class="news-date">10 de Março, 2024</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="featured-card small">
-                        <div class="news-image" style="background-color: #3a6ef0;"></div>
+                        <img src="imagens/teslala.png" alt="" target="_blank" class="news-image">
                         <div class="news-content">
-                            <span class="news-category">Competições</span>
-                            <h4>Fórmula 1: confira o resultado do último grande prêmio</h4>
+                            <span class="news-category">Elétricos</span>
+                            <h4>Preço médio dos Tesla usados cai para US$ 27.814, ficando abaixo da média do mercado pela primeira vez.</h4>
                             <div class="news-meta">
-                                <span class="news-date">13 de Maio, 2023</span>
+                                <span class="news-date">8 de Março, 2024</span>
                             </div>
                         </div>
                     </div>
@@ -164,86 +169,86 @@
             <div class="news-filters">
                 <button class="filter-btn active" data-filter="all">Todas</button>
                 <button class="filter-btn" data-filter="lançamentos">Lançamentos</button>
-                <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
-                <button class="filter-btn" data-filter="competições">Competições</button>
+                <button class="filter-btn" data-filter="elétricos">Elétricos</button>
                 <button class="filter-btn" data-filter="mercado">Mercado</button>
+                <button class="filter-btn" data-filter="dicas">Dicas</button>
             </div>
             
             <div class="news-grid">
-                <div class="news-card" data-category="tecnologia">
-                    <div class="news-image" style="background-color: #4a7eff;"></div>
+                <div class="news-card" data-category="elétricos">
+                    <img src="imagens/tesla.png" class="news-image" alt="">
                     <div class="news-content">
-                        <span class="news-category">Tecnologia</span>
-                        <h3>Baterias de estado sólido: o futuro dos carros elétricos</h3>
-                        <p>As novas baterias prometem maior autonomia e tempo de recarga reduzido para os veículos elétricos.</p>
+                        <span class="news-category">Elétricos</span>
+                        <h3>Tesla não deve trazer Model Y de 6 lugares para os EUA</h3>
+                        <p>A Tesla lançou na China o Model Y L, com três fileiras de bancos, mas Elon Musk indicou que ele pode não ser lançado nos EUA. A empresa opta por focar em veículos autônomos e uma versão mais acessível do Model Y para o mercado norte-americano.</p>
                         <div class="news-meta">
-                            <span class="news-date">12 de Maio, 2023</span>
-                            <a href="#" class="news-read-more">Leia mais</a>
+                            <span class="news-date">7 de Março, 2024</span>
+                            <a href="https://www.reuters.com/business/autos-transportation/teslas-six-seat-model-y-variant-may-not-be-launched-us-2025-08-20" target="_blank" class="news-read-more">Leia mais</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="news-card" data-category="lançamentos">
-                    <div class="news-image" style="background-color: #1a3d7c;"></div>
+                    <img class="news-image" src="imagens/ford.png" ></img>
                     <div class="news-content">
                         <span class="news-category">Lançamentos</span>
-                        <h3>Picape premium chega ao Brasil com preço competitivo</h3>
-                        <p>Fabricante anuncia versões a diesel e gasolina com tecnologia de ponta e interior luxuoso.</p>
+                        <h3>Ford prepara "Model T moment" com novo EV acessível</h3>
+                        <p>Na teleconferência do segundo trimestre de 2025, o CEO Jim Farley anunciou que, em 11 de agosto, a Ford revelou um novo EV de baixo custo — parte da iniciativa "Model T moment". A plataforma serve para SUV compacto, pequeno pickup e veículo de ride-hailing, com preço estimado em US$25.000, usando baterias LFP e produção voltada aos EUA.</p>
                         <div class="news-meta">
-                            <span class="news-date">11 de Maio, 2023</span>
-                            <a href="#" class="news-read-more">Leia mais</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="news-card" data-category="competições">
-                    <div class="news-image" style="background-color: #2a56b6;"></div>
-                    <div class="news-content">
-                        <span class="news-category">Competições</span>
-                        <h3>Rally Dakar 2024: novidades e expectativas</h3>
-                        <p>Equipes preparam veículos para a próxima edição da competição mais dura do mundo.</p>
-                        <div class="news-meta">
-                            <span class="news-date">10 de Maio, 2023</span>
-                            <a href="#" class="news-read-more">Leia mais</a>
+                            <span class="news-date">5 de Março, 2024</span>
+                            <a href="https://www.roadandtrack.com/news/a65563079/ford-new-ev-model-t-moment-ceo-jim-farley/" target="_blank" class="news-read-more">Leia mais</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="news-card" data-category="mercado">
-                    <div class="news-image" style="background-color: #3a6ef0;"></div>
+                    <img src="imagens/ev.png" alt="" class="news-image">
                     <div class="news-content">
                         <span class="news-category">Mercado</span>
-                        <h3>Vendas de automóveis crescem 15% no primeiro trimestre</h3>
-                        <p>Setor automotivo comemora recuperação após período de retração no mercado.</p>
+                        <h3>California planeja substituir incentivos federais para EVs</h3>
+                        <p>Com o fim do crédito federal de US$7.500 para EVs, a Califórnia estuda criar um programa próprio de incentivos — como reembolsos ou vouchers no ponto de venda, além de manter acesso privilegiado a faixas carpool e investir em infraestrutura, reforçando sua estratégia de veículos zero-emissão.</p>
                         <div class="news-meta">
-                            <span class="news-date">9 de Maio, 2023</span>
-                            <a href="#" class="news-read-more">Leia mais</a>
+                            <span class="news-date">3 de Março, 2024</span>
+                            <a href="https://www.roadandtrack.com/news/a65830475/california-ev-tax-credit-federal-replacement" class="news-read-more">Leia mais</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="news-card" data-category="tecnologia">
-                    <div class="news-image" style="background-color: #4a7eff;"></div>
+                <div class="news-card" data-category="dicas">
+                    <img src="imagens/salle.png" class="news-image" alt="">
                     <div class="news-content">
-                        <span class="news-category">Tecnologia</span>
-                        <h3>Sistemas de assistência ao condutor tornam-se obrigatórios na Europa</h3>
-                        <p>Novas regulamentações exigem tecnologia de segurança em todos os veículos novos.</p>
+                        <span class="news-category">Dicas</span>
+                        <h3>Subsidie-se: aproveite a expectativa de renovação de estoques antes do fim dos incentivos</h3>
+                        <p>Embora ainda não seja diretamente uma dica de site, um insight importante é que a expiração dos créditos federais até o final de setembro de 2025 pode levar fabricantes a intensificar promoções e incentivos para limpar os estoques. Isso pode ser usado como uma dica prática para consumidores: fique atento às ofertas antes que os subsídios acabem (tema abordado nas notícias sobre política e estratégia de vendas).</p>
                         <div class="news-meta">
-                            <span class="news-date">8 de Maio, 2023</span>
-                            <a href="#" class="news-read-more">Leia mais</a>
+                            <span class="news-date">1 de Março, 2024</span>
+                            <a href="https://www.motor.com/2025/08/august-new-vehicle-sales-climb-8-2-as-consumer-spending-reaches-record-54-6-billion" class="news-read-more">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card" data-category="elétricos">
+                    <img src="imagens/eletrico.png" alt="carros eletricos" class="news-image">
+                    <div class="news-content">
+                        <span class="news-category">Elétricos</span>
+                        <h3>Dificuldades regulatórias não freiam investimento da Ford em EV</h3>
+                        <p>Apesar da pressão política tentando eliminar os incentivos à venda de veículos elétricos (como créditos federais), a Ford investe US$5 bilhões em plataforma EV acessível, mirando um pickup elétrico por cerca de US$30.000 até 2027 — reafirmando seu compromisso com o futuro elétrico.</p>
+                        <div class="news-meta">
+                            <span class="news-date">28 de Fevereiro, 2024</span>
+                            <a href="https://www.investors.com/news/electric-vehicles-at-a-crossroads-trump-cutting-incentives-china-remains-all-in"target="blank" class="news-read-more">Leia mais</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="news-card" data-category="lançamentos">
-                    <div class="news-image" style="background-color: #1a3d7c;"></div>
+                    <img class="mews-image" src="imagens/cadillac.jpg" alt="">
                     <div class="news-content">
                         <span class="news-category">Lançamentos</span>
-                        <h3>Conversível esportivo é revelado com design arrojado</h3>
-                        <p>Marca alemã surpreende com novo modelo que combina performance e elegância.</p>
+                        <h3>Cadillac apresenta crossover conceitual elétrico "Elevated Velocity"</h3>
+                        <p>A Cadillac revelou o conceito Elevated Velocity, um crossover elétrico futurista com design robusto, modos de condução para estrada e off-road (e-Velocity e Terra), suspensão a ar e visual sofisticado como portas pérgola e rodas de fibra de linho. Um vislumbre do futuro de luxo da marca.</p>
                         <div class="news-meta">
-                            <span class="news-date">7 de Maio, 2023</span>
-                            <a href="#" class="news-read-more">Leia mais</a>
+                            <span class="news-date">25 de Fevereiro, 2024</span>
+                            <a href="https://nypost.com/2025/08/25/business/cadillacs-elevated-velocity-electric-car-details-the-future-of-luxury-rides/" target="_blank" class="news-read-more" >Leia mais</a>
                         </div>
                     </div>
                 </div>
@@ -257,10 +262,10 @@
             </div>
         </section>
         
-        <section class="newsletter-section">
+        <section class="newsletter-section" id="newsletter">
             <div class="newsletter-container">
-                <h2>Receba as notícias em primeira mão</h2>
-                <p>Inscreva-se em nossa newsletter e fique por dentro de tudo que acontece no mundo automotivo</p>
+                <h2>Notícias diárias dos EUA</h2>
+                <p>Inscreva-se em nossa newsletter e receba informações sobre mercado, documentação e dicas para o mercado automobilistico dos Estados Unidos</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Seu melhor e-mail" required>
                     <button type="submit">Inscrever-se</button>
@@ -270,58 +275,45 @@
         
         <section class="info-section" id="about">
             <h3 class="info-title">Sobre Nós</h3>
-            <p>A Auto Specialist Advice é uma empresa especializada em consultoria automotiva, oferecendo soluções técnicas avançadas para problemas complexos de veículos. Nossa equipe de especialistas possui anos de experiência e está sempre atualizada com as últimas tecnologias do setor automotivo.</p>
+            <p>Auto Specialist Advice é o portal definitivo para brasileiros que vivem nos Estados Unidos e amantes de carros. Oferecemos notícias atualizadas do mercado automotivo norte-americano, reviews, dicas de compra, documentação e tudo que você precisa saber sobre o mundo automotivo nos EUA.</p>
         </section>
+
+        <section class="concessionaria-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>O guia definitivo para abrir sua concessionária de sucesso está       aqui!<h2>
+                <a href="https://autodealerproclub.com/" class="cta-button" target="_blank">Saiba Mais aqui</a>
+            </div>
+        </div>
+    </section>
         
-        <section class="info-section" id="contact">
-            <h3 class="info-title">Entre em Contato</h3>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Telefone:</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensagem:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Enviar Mensagem</button>
-            </form>
-        </section>
     </main>
     
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Auto Specialist Advice</h3>
-                    <p>O seu portal de notícias automobilísticas com as últimas novidades, lançamentos e tendências do setor.</p>
+                    <h3>Auto Specialist Advice USA</h3>
+                    <p>Seu portal de notícias automobilísticas com foco no mercado norte-americano.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Categorias</h3>
                     <ul>
                         <li><a href="#">Lançamentos</a></li>
-                        <li><a href="#">Tecnologia</a></li>
-                        <li><a href="#">Competições</a></li>
+                        <li><a href="#">Elétricos</a></li>
                         <li><a href="#">Mercado</a></li>
+                        <li><a href="#">Dicas para Brasileiros</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>Email: redacao@autospecialist.com</p>
-                    <p>Telefone: (11) 3456-7890</p>
+                    <p>Email: eua@autospecialist.com</p>
+                    <p>WhatsApp: +1 (559) 943-3975</p>
                 </div>
                 
-                <div class="footer-section">
+                <div class="footer-section" id="footer">
                     <h3>Redes Sociais</h3>
                     <div class="social-icons">
                         <a href="#" class="social-icon">f</a>
@@ -333,7 +325,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Auto Specialist Advice - Todos os direitos reservados</p>
+                <p>&copy; 2024 Auto Specialist Advice USA - Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
