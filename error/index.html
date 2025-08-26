@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oops! Página não encontrada</title>
+    <meta name="description" content="Page not found - Auto Specialist Advice USA. Fun 404 error page with interactive memory game.">
+    <meta name="keywords" content="404 error, page not found, car news, automotive website, U.S. car market">
+    <title>Page Not Found - Auto Specialist Advice USA</title>
     <style>
         * {
             margin: 0;
@@ -85,12 +87,12 @@
             margin: 20px 0;
         }
         
-        /* Animação de elementos flutuantes */
+        /* Floating elements animation */
         .floating {
             animation: floating 3s ease-in-out infinite;
         }
         
-        /* Jogo da memória */
+        /* Memory game */
         .memory-game {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -117,7 +119,7 @@
             transform: rotateY(180deg);
         }
         
-        /* Elementos decorativos */
+        /* Decorative elements */
         .bubble {
             position: absolute;
             border-radius: 50%;
@@ -126,7 +128,7 @@
             z-index: -1;
         }
         
-        /* Animações */
+        /* Animations */
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
@@ -149,7 +151,7 @@
             75% { transform: translateY(-100px) translateX(-50px) rotate(270deg); }
         }
         
-        /* Responsividade */
+        /* Responsiveness */
         @media (max-width: 768px) {
             h1 { font-size: 5rem; }
             h2 { font-size: 1.5rem; }
@@ -168,19 +170,19 @@
     <div class="container">
         <h1 class="floating">404</h1>
         <div class="emoji">😵</div>
-        <h2>Oops! Página perdida no espaço!</h2>
-        <p>Parece que a página que você está procurando fugiu para outra dimensão. Não se preocupe, você pode voltar para casa ou se divertir aqui enquanto isso!</p>
+        <h2>Oops! Page lost in space!</h2>
+        <p>It looks like the page you're looking for has escaped to another dimension. Don't worry, you can return home or have some fun here while we redirect you!</p>
         
         <div class="memory-game" id="memoryGame">
-            <!-- Cartas do jogo da memória serão geradas via JavaScript -->
+            <!-- Memory game cards will be generated via JavaScript -->
         </div>
         
-        <a href="/" class="btn">Voltar para a página inicial</a>
-        <button class="btn" id="danceBtn">💃 Fazer dançar</button>
+        <a href="/" class="btn">Return to homepage</a>
+        <button class="btn" id="danceBtn">💃 Make it dance</button>
     </div>
 
     <script>
-        // Criar bolhas decorativas
+        // Create decorative bubbles
         function createBubbles() {
             const body = document.querySelector('body');
             const bubbleCount = 15;
@@ -189,7 +191,7 @@
                 const bubble = document.createElement('div');
                 bubble.classList.add('bubble');
                 
-                // Tamanho e posição aleatórios
+                // Random size and position
                 const size = Math.random() * 100 + 50;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
@@ -204,18 +206,18 @@
             }
         }
         
-        // Jogo da memória
+        // Memory game
         function createMemoryGame() {
-            const emojis = ['🚀', '🌟', '👽', '🤖', '🛸', '🌍', '🔭', '👾'];
+            const emojis = ['🚗', '🚙', '🏎️', '🚓', '🚕', '🚌', '🚑', '🚚'];
             const gameContainer = document.getElementById('memoryGame');
-            const cards = [...emojis, ...emojis]; // Duplica para ter pares
+            const cards = [...emojis, ...emojis]; // Duplicate to have pairs
             let flippedCards = [];
             let matchedPairs = 0;
             
-            // Embaralhar cartas
+            // Shuffle cards
             cards.sort(() => Math.random() - 0.5);
             
-            // Criar cartas no jogo
+            // Create game cards
             cards.forEach((emoji, index) => {
                 const card = document.createElement('div');
                 card.classList.add('memory-card');
@@ -253,7 +255,7 @@
                     
                     if (matchedPairs === emojis.length) {
                         setTimeout(() => {
-                            alert('Parabéns! Você venceu! 🎉');
+                            alert('Congratulations! You won! 🎉');
                             resetGame();
                         }, 500);
                     }
@@ -276,7 +278,7 @@
             }
         }
         
-        // Botão de dança
+        // Dance button
         document.getElementById('danceBtn').addEventListener('click', () => {
             const elements = document.querySelectorAll('h1, h2, p, .emoji, .btn');
             elements.forEach(el => {
@@ -286,7 +288,7 @@
                 }, 10);
             });
             
-            // Criar estilos de dança dinâmicos
+            // Create dynamic dance styles
             const style = document.createElement('style');
             style.innerHTML = `
                 @keyframes dance {
@@ -298,7 +300,7 @@
             `;
             document.head.appendChild(style);
             
-            // Voltar ao normal após 3 segundos
+            // Return to normal after 3 seconds
             setTimeout(() => {
                 elements.forEach(el => {
                     el.style.animation = '';
@@ -307,7 +309,7 @@
             }, 3000);
         });
         
-        // Inicializar a página
+        // Initialize page
         window.onload = function() {
             createBubbles();
             createMemoryGame();
