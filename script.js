@@ -1,231 +1,260 @@
-// Menu Hamburguer
+// Menu mobile toggle - versão otimizada
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerIcon = document.querySelector('.hamburger-icon');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const mobileOverlay = document.createElement('div');
-    mobileOverlay.className = 'mobile-overlay';
-    document.body.appendChild(mobileOverlay);
+    'use strict';
     
-    // Toggle menu
-    function toggleMenu() {
-        hamburgerIcon.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
+    // Cache de elementos DOM
+    const domCache = {
+        hamburger: document.querySelector('.hamburger-icon'),
+        mobileNav: document.querySelector('.mobile-nav'),
+        mobileOverlay: document.createElement('div'),
+        body: document.body,
+        backToTop: document.getElementById('backToTop'),
+        sliderTrack: document.querySelector('.slider-track'),
+        slides: document.querySelectorAll('.slide'),
+        leftArrow: document.querySelector('.left-arrow'),
+        rightArrow: document.querySelector('.right-arrow'),
+        filterBtns: document.querySelectorAll('.filter-btn'),
+        newsCards: document.querySelectorAll('.news-card')
+    };
+    
+    // Adicionar overlay para mobile
+    domCache.mobileOverlay.className = 'mobile-overlay';
+    document.body.appendChild(domCache.mobileOverlay);
+    
+    // Toggle menu mobile
+    function toggleMobileMenu() {
+        domCache.hamburger.classList.toggle('active');
+        domCache.mobileNav.classList.toggle('active');
+        domCache.mobileOverlay.classList.toggle('active');
+        domCache.body.classList.toggle('no-scroll');
     }
     
-    // Abrir/fechar menu ao clicar no ícone
-    hamburgerIcon.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleMenu();
-    });
+    // Fechar menu ao clicar no overlay
+    function closeMobileMenu() {
+        domCache.hamburger.classList.remove('active');
+        domCache.mobileNav.classList.remove('active');
+        domCache.mobileOverlay.classList.remove('active');
+        domCache.body.classList.remove('no-scroll');
+    }
     
-    // Fechar menu ao clicar fora
-    mobileOverlay.addEventListener('click', function() {
-        if (mobileNav.classList.contains('active')) {
-            toggleMenu();
+    // Event listeners para menu mobile
+    domCache.hamburger.addEventListener('click', toggleMobileMenu);
+    domCache.mobileOverlay.addEventListener('click', closeMobileMenu);
+    
+    // Back to top button
+    function handleScroll() {
+        if (window.scrollY > 300) {
+            domCache.backToTop.classList.add('show');
+        } else {
+            domCache.backToTop.classList.remove('show');
         }
-    });
-    
-    // Fechar menu ao clicar em um link
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (mobileNav.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    });
-    
-    // Slider de notícias
-    const sliderTrack = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slide');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-    let currentIndex = 0;
-    
-    // Função para atualizar o slider
-    function updateSlider() {
-        sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        // Atualizar classes ativas
-        slides.forEach((slide, index) => {
-            if (index === currentIndex) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
-        });
     }
     
-    // Navegação para a direita
-    rightArrow.addEventListener('click', function() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-    });
-    
-    // Navegação para a esquerda
-    leftArrow.addEventListener('click', function() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlider();
-    });
-    
-    // Auto-play do slider
-    let slideInterval = setInterval(function() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-    }, 5000);
-    
-    // Pausar auto-play ao interagir com o slider
-    sliderTrack.addEventListener('mouseenter', function() {
-        clearInterval(slideInterval);
-    });
-    
-    sliderTrack.addEventListener('mouseleave', function() {
-        slideInterval = setInterval(function() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateSlider();
-        }, 5000);
-    });
-    
-    // Filtros de notícias
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const newsCards = document.querySelectorAll('.news-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remover classe ativa de todos os botões
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Adicionar classe ativa ao botão clicado
-            this.classList.add('active');
-            
-            // Obter o filtro selecionado
-            const filter = this.getAttribute('data-filter');
-            
-            // Filtrar as notícias
-            newsCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
+    // Scroll suave para links internos
+    function setupSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    closeMobileMenu();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
-    });
+    }
     
-    // Paginação
-    const paginationButtons = document.querySelectorAll('.pagination-btn');
+    // Slider de notícias
+    let currentSlide = 0;
+    const slideCount = domCache.slides.length;
     
-    paginationButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remover classe ativa de todos os botões
-            paginationButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Adicionar classe ativa ao botão clicado
-            this.classList.add('active');
-            
-            // Aqui você implementaria a lógica de paginação real
-            // Por enquanto é apenas visual
+    function goToSlide(index) {
+        if (index < 0) index = slideCount - 1;
+        if (index >= slideCount) index = 0;
+        
+        currentSlide = index;
+        domCache.sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Atualizar classes ativas
+        domCache.slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === currentSlide);
         });
-    });
+    }
     
-    // Formulário de newsletter
-    const newsletterForm = document.querySelector('.newsletter-form');
+    // Auto-play para o slider
+    let slideInterval = setInterval(() => {
+        goToSlide(currentSlide + 1);
+    }, 5000);
     
-    newsletterForm.addEventListener('submit', function(e) {
+    // Pausar auto-play ao interagir
+    function pauseSlider() {
+        clearInterval(slideInterval);
+    }
+    
+    function resumeSlider() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+    }
+    
+    // Filtro de notícias
+    function filterNews(category) {
+        domCache.newsCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 10);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+    
+    // Paginação de notícias (simulada)
+    function setupPagination() {
+        const paginationBtns = document.querySelectorAll('.pagination-btn');
+        paginationBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                paginationBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Simular carregamento de mais notícias
+                console.log('Loading page:', this.textContent);
+            });
+        });
+    }
+    
+    // Newsletter form handling
+    function handleNewsletterSubmit(e) {
         e.preventDefault();
         const emailInput = this.querySelector('input[type="email"]');
         const email = emailInput.value.trim();
         
-        if (email) {
-            // Aqui você implementaria o envio do formulário
-            alert('Obrigado por se inscrever em nossa newsletter!');
+        if (email && isValidEmail(email)) {
+            console.log('Email cadastrado:', email);
+            alert('Thank you for signing up! You will receive our updates soon.');
             emailInput.value = '';
-        }
-    });
-    
-    // Botão de voltar ao topo
-    const backToTopButton = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
         } else {
-            backToTopButton.classList.remove('show');
+            alert('Please enter a valid email address.');
         }
-    });
-    
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-    // Header sticky
-    const header = document.querySelector('header');
-    const desktopNav = document.querySelector('.desktop-nav');
-    const headerHeight = header.offsetHeight;
-    
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > headerHeight) {
-            desktopNav.classList.add('sticky');
-            document.body.style.paddingTop = desktopNav.offsetHeight + 'px';
-        } else {
-            desktopNav.classList.remove('sticky');
-            document.body.style.paddingTop = 0;
-        }
-    });
-    
-    // Adicionar classe sticky inicial se necessário
-    if (window.pageYOffset > headerHeight) {
-        desktopNav.classList.add('sticky');
-        document.body.style.paddingTop = desktopNav.offsetHeight + 'px';
     }
     
-    // Animações de entrada suave para elementos
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    // Validação simples de email
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
+    // Lazy loading para imagens
+    function initLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.src; // Forçar carregamento se necessário
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    }
+    
+    // Inicialização
+    function init() {
+        // Event listeners
+        window.addEventListener('scroll', handleScroll);
+        domCache.backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    }, observerOptions);
-    
-    // Observar elementos para animação
-    document.querySelectorAll('.news-card, .featured-card, .info-section').forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
-    });
-    
-    // Adicionar estilos CSS para animação
-    const animationStyles = document.createElement('style');
-    animationStyles.textContent = `
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        
+        // Slider controls
+        domCache.leftArrow.addEventListener('click', () => {
+            pauseSlider();
+            goToSlide(currentSlide - 1);
+            setTimeout(resumeSlider, 5000);
+        });
+        
+        domCache.rightArrow.addEventListener('click', () => {
+            pauseSlider();
+            goToSlide(currentSlide + 1);
+            setTimeout(resumeSlider, 5000);
+        });
+        
+        // Pausar slider ao passar mouse
+        domCache.sliderTrack.addEventListener('mouseenter', pauseSlider);
+        domCache.sliderTrack.addEventListener('mouseleave', resumeSlider);
+        
+        // Filtros de notícias
+        domCache.filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                domCache.filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                filterNews(this.getAttribute('data-filter'));
+            });
+        });
+        
+        // Newsletter
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', handleNewsletterSubmit);
         }
         
-        .animate-on-scroll.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        // Configurações adicionais
+        setupSmoothScrolling();
+        setupPagination();
+        initLazyLoading();
         
-        .sticky {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-    `;
-    document.head.appendChild(animationStyles);
+        // Inicializar scroll position
+        handleScroll();
+    }
+    
+    // Iniciar tudo quando o DOM estiver pronto
+    init();
 });
+
+// Service Worker para cache (opcional - descomente se quiser implementar)
+/*
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+}
+*/
+
+// Web Vitals monitoring (opcional)
+/*
+const reportWebVitals = (onPerfEntry) => {
+    if (onPerfEntry && onPerfEntry instanceof Function) {
+        import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+            getCLS(onPerfEntry);
+            getFID(onPerfEntry);
+            getFCP(onPerfEntry);
+            getLCP(onPerfEntry);
+            getTTFB(onPerfEntry);
+        });
+    }
+};
+reportWebVitals(console.log);
+*/
